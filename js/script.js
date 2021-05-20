@@ -35,6 +35,10 @@ restartBtn.addEventListener("click", () => {
         stepCount = 0
         playerName = "X"
         message.innerText = `Player ${playerName}'s turn:`
+        
+        cells.forEach((cell) => {
+            cell.addEventListener("click", cellClick)
+        })
     })
 })
 
