@@ -11,9 +11,10 @@
   font-size: 50px;
   font-weight: bold;
   text-align: center;
+  text-decoration: underline;
 }
 
-.player-intro {
+.game-message {
   display: block;
   margin-bottom: 30px;
   font-size: 35px;
@@ -22,28 +23,32 @@
 }
 
 .game-field {
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
-  margin: 50px auto;
+  margin: 30px auto;
   border: 2px solid black;
 }
 
 .game-field__item {
+  line-height: 100px;
+  font-weight: bold;
   border: 2px solid black;
   cursor: pointer;
   text-align: center;
   font-size: 30px;
   font-weight: bold;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 
 .game-field__item:hover {
-  background-color: #d8d8d8;
+  background-color: #dedede;
 }
 
 .btn-to-restart {
