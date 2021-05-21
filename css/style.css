@@ -47,6 +47,10 @@
   transition: 0.2s;
 }
 
+.game-field__item.win {
+  background-color: rgba(10, 255, 0, 0.5);
+}
+
 .game-field__item:hover {
   background-color: #dedede;
 }

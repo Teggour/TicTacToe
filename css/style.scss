@@ -47,6 +47,10 @@
         font-weight: bold;
         transition: 0.2s;
 
+        &.win {
+            background-color: rgba(10, 255, 0, 0.5);
+        }
+
         &:hover {
             background-color: rgb(222, 222, 222);
         }

@@ -64,6 +64,7 @@ restartBtn.addEventListener("click", () => {
         message.innerText = `Player ${playerName}'s turn:`
 
         cells.forEach((cell) => {
+            cell.classList.remove("win")
             cell.addEventListener("click", cellClick)
         })
         undoBtn.addEventListener("click", clickUndo)
@@ -87,6 +88,9 @@ function cellClick() {
                 cell.removeEventListener("click", cellClick)
             })
             undoBtn.removeEventListener("click", clickUndo)
+
+
+
             return (message.innerText = `Player ${playerName}'s WIN!!!!!`)
         }
 
@@ -104,13 +108,14 @@ function cellClick() {
 
 function searchWinner(playerSteps, cellNum) {
     for (let i = 0; i < winCombinations.length; i++) {
-        let someWinArr = winCombinations[i],
+        let winCombo = winCombinations[i],
             count = 0;
-        if (someWinArr.indexOf(cellNum) !== -1) {
-            for (var j = 0; j < someWinArr.length; j++) {
-                if (playerSteps.indexOf(someWinArr[j]) !== -1) {
+        if (winCombo.indexOf(cellNum) !== -1) {
+            for (var j = 0; j < winCombo.length; j++) {
+                if (playerSteps.indexOf(winCombo[j]) !== -1) {
                     count++;
                     if (count === 3) {
+                        winnerDemonstration(winCombo)
                         return true;
                     }
                 }
@@ -118,4 +123,12 @@ function searchWinner(playerSteps, cellNum) {
             count = 0;
         }
     }
+}
+
+function winnerDemonstration(winCombo) {
+    cells.forEach((cell) => {
+        if (winCombo.indexOf(+cell.getAttribute("data-cell-num")) !== -1) {
+            cell.classList.add("win")
+        }
+    })
 }
