@@ -53,21 +53,29 @@
     }
 }
 
-.btn-to-restart {
-    display: block;
-    margin: 0 auto;
-    border: 1px solid black;
-    border-radius: 30px;
-    background-color: white;
-    padding: 15px 30px;
-    cursor: pointer;
-    font-size: 20px;
-    transition: all 0.2s linear;
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 
-    &:hover {
-        background-color: rgba(150, 150, 150, 0.15);
-        border: 2px solid black;
-        font-size: 22px;
-        font-weight: bold;
+.btn-to {
+    &__undo,
+    &__restart {
+        margin: 0 20px;
+        border: 1px solid black;
+        border-radius: 30px;
+        background-color: white;
+        padding: 15px 30px;
+        cursor: pointer;
+        font-size: 20px;
+        transition: all 0.2s linear;
+
+        &:hover {
+            background-color: rgba(150, 150, 150, 0.15);
+            border: 2px solid black;
+            font-size: 22px;
+            font-weight: bold;
+        }
     }
 }

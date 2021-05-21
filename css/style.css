@@ -51,9 +51,21 @@
   background-color: #dedede;
 }
 
-.btn-to-restart {
-  display: block;
-  margin: 0 auto;
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.btn-to__undo, .btn-to__restart {
+  margin: 0 20px;
   border: 1px solid black;
   border-radius: 30px;
   background-color: white;
@@ -64,7 +76,7 @@
   transition: all 0.2s linear;
 }
 
-.btn-to-restart:hover {
+.btn-to__undo:hover, .btn-to__restart:hover {
   background-color: rgba(150, 150, 150, 0.15);
   border: 2px solid black;
   font-size: 22px;
