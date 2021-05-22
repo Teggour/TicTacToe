@@ -35,9 +35,9 @@ function clickUndo() {
     if (stepCount) {
         playerName = playerName === "X" ? "O" : "X"
         playerName === "X" ? undoStep(stepsX) : undoStep(stepsO)
-        
+
         message.innerText = `Player ${playerName}'s turn:`
-        
+
         stepCount--
     }
 }
@@ -50,7 +50,7 @@ function undoStep(playerSteps) {
             cell.innerText = ""
         }
     })
-    
+
 }
 
 // Click on RESTART btn
@@ -79,31 +79,31 @@ cells.forEach((cell) => {
 function cellClick() {
     if (!this.textContent) {
         let num = +this.getAttribute("data-cell-num")
-        
+
         this.innerText = playerName;
         playerName === "X" ? stepsX.push(num) : stepsO.push(num)
 
+        stepCount++
+
         if ((stepsX.length > 2 || stepsO.length > 2) && (searchWinner(stepsX, num) || searchWinner(stepsO, num))) {
-            cells.forEach((cell) => {
-                cell.removeEventListener("click", cellClick)
-            })
-            undoBtn.removeEventListener("click", clickUndo)
-
-
-
+            gameEnd()
             return (message.innerText = `Player ${playerName}'s WIN!!!!!`)
         }
 
         playerName = playerName === "X" ? "O" : "X"
-        message.innerText = `Player ${playerName}'s turn:`
-
-        if (stepCount < 9) {
-            stepCount++
-        }
+        
+        message.innerText = stepCount < 9 ? `Player ${playerName}'s turn:` : (gameEnd(),"Draw!")
     }
     else {
         message.innerText = `This field is already filled! Choose a free field...\nPlayer ${playerName}'s turn:`
     }
+}
+
+function gameEnd () {
+    cells.forEach((cell) => {
+        cell.removeEventListener("click", cellClick)
+    })
+    undoBtn.removeEventListener("click", clickUndo)
 }
 
 function searchWinner(playerSteps, cellNum) {
