@@ -66,6 +66,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: 20px;
 }
 
 .btn-to__undo, .btn-to__restart {
